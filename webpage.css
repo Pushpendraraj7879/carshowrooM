@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    font-family: sans-serif;
+}
+nav{
+   
+    width: 100%;
+    height: 7vh;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    display:flex ;
+}
+nav  ul{
+    display: flex;
+    padding: 4px;
+    
+}
+ nav  li{ 
+   list-style-type: none;
+   padding: 12px;
+}
+.btn{
+    padding: 6px 12px;
+     background-color: rgb(95, 204, 247);
+    border: none;
+    border-radius: 5px;
+}
+.main-section{
+    margin: 100px;
+}
+.main-heading h1{
+    font-size: 5vh;
+}
+.main-heading p{
+    color: rgb(101, 100, 100);
+    padding:  13px 0px;
+
+}
+.btn-1{
+    padding: 4px 8px;
+    background-color: rgb(95, 204, 247);
+    color: white;
+    border: none;
+    font-size: large;
+    font-weight: 400;
+}
+:hover.btn-1{
+    color: black;
+}
