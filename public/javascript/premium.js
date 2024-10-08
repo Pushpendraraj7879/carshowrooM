@@ -1,7 +1,9 @@
+console.log("in Js")
+
 let currentIndex=0;
 const  carPerPage=4;
 let carGallery=document.getElementById("carGallery");
-let car=[{image:"fsfs",Heading:"kfsff",description:"fsffs",price:"2132"},{image:"fsfs",Heading:"kfsff",description:"fsffs",price:"2132"},{image:"fsfs",Heading:"kfsff",description:"fsffs",price:"2132"},{image:"fsfs",Heading:"kfsff",description:"fsffs",price:"2132"}]
+let car=[{image:"fsfs",heading:"lambo",description:"high Speed car",price:"5cr"},{image:"fsfs",Heading:"kfsff",description:"fsffs",price:"2132"},{image:"fsfs",Heading:"kfsff",description:"fsffs",price:"2132"},{image:"fsfs",Heading:"kfsff",description:"fsffs",price:"2132"}]
 
 function renderCars(){
        carGallery.innerHTML=" ";
@@ -15,7 +17,8 @@ function renderCars(){
         let carDivImage=document.createElement('img');
         carDivImage.classList.add("carImage");
         carDiv.appendChild(carDivImage);
-        carDivImage.innerHTML=`${car[i].image}`;
+        carDivImage.setAttribute("src","./image/car-160895_640.png");
+      //   carDivImage.innerHTML=`${car[i].image}`;
 
         let carDivHeading=document.createElement('div');
         carDivHeading.classList.add("carHeading");
@@ -39,18 +42,20 @@ function renderCars(){
        document.getElementById('prevBtn').disabled=(currentIndex===0);
        document.getElementById('nextBtn').disabled=((currentIndex+carPerPage)>=car.length);
 
-       function showNext(){
-        
-             currentIndex+=carPerPage;
-             renderCars();
-       }
-
-       function showPrev(){
-        currentIndex-=carPerPage;
-        renderCars();
-
-         }
-
-         renderCars();
+      
         
 }
+
+function showNext(){
+        
+      currentIndex+=carPerPage;
+      renderCars();
+}
+
+function showPrev(){
+ currentIndex-=carPerPage;
+ renderCars();
+
+  }
+
+  renderCars();
