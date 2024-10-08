@@ -8,18 +8,32 @@
 }
 body{
     font-family: sans-serif;
+    
 }
 nav{
-   
+    background:rgb(33, 33, 33);
+    color: white;;
+    color: white;
     width: 100%;
     height: 7vh;
-    background-color: aqua;
+    padding: 0 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+   
 }
+.logo h1 a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer; 
+}
+
 .logo{
     display:flex ;
+}
+.logo-1{
+    font-size: 25px;
+    padding:0px 10px ;
 }
 nav  ul{
     display: flex;
@@ -29,15 +43,35 @@ nav  ul{
  nav  li{ 
    list-style-type: none;
    padding: 12px;
+   
+}
+li a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
 }
 .btn{
     padding: 6px 12px;
-     background-color: rgb(95, 204, 247);
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #f24005;
     border: none;
     border-radius: 5px;
 }
-.main-section{
-    margin: 100px;
+.btn a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer; 
+}
+
+
+.main-heading{
+    padding: 50px;
+    background:rgb(33, 33, 33);
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .main-heading h1{
     font-size: 5vh;
@@ -49,12 +83,141 @@ nav  ul{
 }
 .btn-1{
     padding: 4px 8px;
-    background-color: rgb(95, 204, 247);
-    color: white;
+    background-color: #f24005;
+     border-radius: 5px;
     border: none;
-    font-size: large;
+    font-size: 20px;
     font-weight: 400;
+}
+.btn-1 a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
 }
 :hover.btn-1{
     color: black;
+}
+.car{
+    width: 62vw;
+    height: auto;
+}
+:hover.car{
+  width: 65vw;  
+}
+.awesome-features{
+   padding: 50px;
+    background:rgb(33, 33, 33);
+    color: white;
+}
+.awesome-features h2{
+    padding-bottom: 20px;
+    font-size: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.features{
+    /* margin: 30px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.park{
+   
+    display:block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.logo-2{
+    font-size: 2.5vw;
+    padding: 10px 0;  
+}
+.park h3{
+    padding: 10px 0;
+}
+.park p{
+    color: rgb(101, 100, 100);
+}
+.services{
+   padding: 50px;
+    background:rgb(33, 33, 33);
+    color: white; 
+    /* position: relative;
+    width:25vw; 
+    height:25vh; 
+    overflow: hidden;   */
+}
+.car-services{
+     padding: 50px;
+    display: flex;
+    align-items: center;
+   justify-content: space-around;
+    
+}
+/* .circle {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    width:25vw; 
+    height:25vh; 
+    overflow: hidden; 
+} */
+
+.car-2 {
+    /* position: absolute; */
+    width:40vw ; 
+    height:auto ; 
+    /* background-color: #e74c3c; 
+    border-radius: 50%;    */
+}
+.car-services h2{
+    padding-bottom: 15px;
+    font-size: 4vh;
+
+}
+.car-services p{
+    padding-bottom: 15px;
+    color: rgb(101, 100, 100);
+}
+/* .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    width: 30%;
+    border-left: 1px solid #aeadad;
+    padding: 0 2vw;
+}
+ */
+
+.footer{
+    
+    background:rgb(33, 33, 33);
+    color: white;  
+}
+ 
+.section-footer{
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; 
+}
+.footer-1 h3{
+    padding-bottom: 10px;
+}
+.footer-1 p{
+    padding-bottom: 10px;
+    color: rgb(101, 100, 100);
+}
+.copywrite{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.copywrite p{
+    padding-bottom: 20px;
+    color: rgb(101, 100, 100); 
 }
