@@ -98,6 +98,11 @@ app.post("/login-data",async(req,res)=>{
 
 })
 
+app.post("/logout",(req,res)=>{
+    res.clearCookies("uid");
+    res.redirect('/login');
+})
+
 
 
 

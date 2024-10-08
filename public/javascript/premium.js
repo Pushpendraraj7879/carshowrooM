@@ -3,7 +3,13 @@ console.log("in Js")
 let currentIndex=0;
 const  carPerPage=4;
 let carGallery=document.getElementById("carGallery");
-let car=[{image:"fsfs",heading:"lambo",description:"high Speed car",price:"5cr"},{image:"fsfs",Heading:"kfsff",description:"fsffs",price:"2132"},{image:"fsfs",Heading:"kfsff",description:"fsffs",price:"2132"},{image:"fsfs",Heading:"kfsff",description:"fsffs",price:"2132"}]
+let car=[{image:"fsfs",heading:"lambo1",description:"high Speed car",price:"5cr"},{image:"fsfs",heading:"lambo",description:"high Speed car",price:"5cr"},
+      {image:"fsfs",heading:"lambo2",description:"high Speed car",price:"5cr"},{image:"fsfs",heading:"lambo",description:"high Speed car",price:"5cr"},
+      {image:"fsfs",heading:"lambo3",description:"high Speed car",price:"5cr"},{image:"fsfs",heading:"lambo",description:"high Speed car",price:"5cr"},
+      {image:"fsfs",heading:"lambo4",description:"high Speed car",price:"5cr"},{image:"fsfs",heading:"lambo",description:"high Speed car",price:"5cr"},
+      {image:"fsfs",heading:"lambofsfsfs",description:"high Speed car",price:"5cr"},
+      {image:"fsfs",heading:"lambo5",description:"high Speed car",price:"5cr"},{image:"fsfs",heading:"lambo",description:"high Speed car",price:"5cr"}
+]
 
 function renderCars(){
        carGallery.innerHTML=" ";
@@ -39,23 +45,27 @@ function renderCars(){
        }
 
 
-       document.getElementById('prevBtn').disabled=(currentIndex===0);
-       document.getElementById('nextBtn').disabled=((currentIndex+carPerPage)>=car.length);
-
-      
-        
-}
+            
+       
+      }
+      // document.getElementById('prevBtn').disabled=(currentIndex===0);
+      // document.getElementById('nextBtn').disabled=((currentIndex+carPerPage)>=car.length);
 
 function showNext(){
-        
-      currentIndex+=carPerPage;
-      renderCars();
+      if (currentIndex + carPerPage < car.length) { // Ensure we don't go out of bounds
+            currentIndex += carPerPage;
+            renderCars();
+        }
 }
 
 function showPrev(){
- currentIndex-=carPerPage;
- renderCars();
-
+      if (currentIndex > 0) { // Ensure we don't go out of bounds
+            currentIndex -= carPerPage;
+            renderCars();
+        }
   }
+
+  document.getElementById('prevBtn').addEventListener('click', showPrev);
+document.getElementById('nextBtn').addEventListener('click', showNext);
 
   renderCars();
