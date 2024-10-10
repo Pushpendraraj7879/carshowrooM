@@ -1,5 +1,4 @@
-// const connectDB=require("./utils/connectDB");
-// connectDB();
+
 const User=require("../../modules/User");
 
 
@@ -13,7 +12,7 @@ const cars = [
       { image: "fsfs", heading: "lambo7", description: "high Speed car", price: "5cr" }
   ];
 
-  // Function to render cars for a specific gallery
+
   function renderCars(carGallery, cars, currentIndex, carPerPage) {
       carGallery.innerHTML = "";
 
@@ -44,7 +43,7 @@ const cars = [
       }
   }
 
-  // Function to initialize a gallery with navigation
+  
   function initializeGallery(galleryId, btnPrevId, btnNextId, cars, carPerPage) {
       let currentIndex = 0;
       let carGallery = document.getElementById(galleryId);
@@ -68,11 +67,10 @@ const cars = [
       btnPrev.addEventListener('click', showPrev);
       btnNext.addEventListener('click', showNext);
 
-      // Initial render
       renderCars(carGallery, cars, currentIndex, carPerPage);
   }
 
-  // Initialize all car galleries
+
   initializeGallery('carGallery1', 'prevBtn1', 'nextBtn1', cars, 4);
   initializeGallery('carGallery2', 'prevBtn2', 'nextBtn2', cars, 4);
   initializeGallery('carGallery3', 'prevBtn3', 'nextBtn3', cars, 4);
