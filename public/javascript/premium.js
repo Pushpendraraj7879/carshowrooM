@@ -1,71 +1,81 @@
-console.log("in Js")
-
-let currentIndex=0;
-const  carPerPage=4;
-let carGallery=document.getElementById("carGallery");
-let car=[{image:"fsfs",heading:"lambo1",description:"high Speed car",price:"5cr"},{image:"fsfs",heading:"lambo",description:"high Speed car",price:"5cr"},
-      {image:"fsfs",heading:"lambo2",description:"high Speed car",price:"5cr"},{image:"fsfs",heading:"lambo",description:"high Speed car",price:"5cr"},
-      {image:"fsfs",heading:"lambo3",description:"high Speed car",price:"5cr"},{image:"fsfs",heading:"lambo",description:"high Speed car",price:"5cr"},
-      {image:"fsfs",heading:"lambo4",description:"high Speed car",price:"5cr"},{image:"fsfs",heading:"lambo",description:"high Speed car",price:"5cr"},
-      {image:"fsfs",heading:"lambofsfsfs",description:"high Speed car",price:"5cr"},
-      {image:"fsfs",heading:"lambo5",description:"high Speed car",price:"5cr"},{image:"fsfs",heading:"lambo",description:"high Speed car",price:"5cr"}
-]
-
-function renderCars(){
-       carGallery.innerHTML=" ";
-
-       for(let i=currentIndex;((i<currentIndex+carPerPage)&&(i<car.length));i++){
-          
-        let carDiv=document.createElement('div');
-        carDiv.classList.add("carContainer");
-        carGallery.appendChild(carDiv);
-
-        let carDivImage=document.createElement('img');
-        carDivImage.classList.add("carImage");
-        carDiv.appendChild(carDivImage);
-        carDivImage.setAttribute("src","./image/car-160895_640.png");
-      //   carDivImage.innerHTML=`${car[i].image}`;
-
-        let carDivHeading=document.createElement('div');
-        carDivHeading.classList.add("carHeading");
-        carDiv.appendChild(carDivHeading);
-         carDivHeading.innerHTML=`${car[i].heading}`
-
-        let carDivDescription=document.createElement('div');
-        carDivDescription.classList.add("carDescription");
-        carDiv.appendChild(carDivDescription);
-         carDivDescription.innerHTML=`${car[i].description}`
+// const connectDB=require("./utils/connectDB");
+// connectDB();
+const User=require("../../modules/User");
 
 
-        let carDivPrice=document.createElement('div');
-        carDivPrice.classList.add("carPrice");
-        carDiv.appendChild(carDivPrice);
-         carDivPrice.innerHTML=`${car[i].price}`
-         
-       }
+const cars = [
+      { image: "fsfs", heading: "lambo1", description: "high Speed car", price: "5cr" },
+      { image: "fsfs", heading: "lambo2", description: "high Speed car", price: "5cr" },
+      { image: "fsfs", heading: "lambo3", description: "high Speed car", price: "5cr" },
+      { image: "fsfs", heading: "lambo4", description: "high Speed car", price: "5cr" },
+      { image: "fsfs", heading: "lambo5", description: "high Speed car", price: "5cr" },
+      { image: "fsfs", heading: "lambo6", description: "high Speed car", price: "5cr" },
+      { image: "fsfs", heading: "lambo7", description: "high Speed car", price: "5cr" }
+  ];
 
+  // Function to render cars for a specific gallery
+  function renderCars(carGallery, cars, currentIndex, carPerPage) {
+      carGallery.innerHTML = "";
 
-            
-       
+      for (let i = currentIndex; i < currentIndex + carPerPage && i < cars.length; i++) {
+          let carDiv = document.createElement('div');
+          carDiv.classList.add("carContainer");
+          carGallery.appendChild(carDiv);
+
+          let carDivImage = document.createElement('img');
+          carDivImage.classList.add("carImage");
+          carDivImage.setAttribute("src", "./image/auto-2179220_640.jpg");
+          carDiv.appendChild(carDivImage);
+
+          let carDivHeading = document.createElement('div');
+          carDivHeading.classList.add("carHeading");
+          carDivHeading.innerHTML = `${cars[i].heading}`;
+          carDiv.appendChild(carDivHeading);
+
+          let carDivDescription = document.createElement('div');
+          carDivDescription.classList.add("carDescription");
+          carDivDescription.innerHTML = `${cars[i].description}`;
+          carDiv.appendChild(carDivDescription);
+
+          let carDivPrice = document.createElement('div');
+          carDivPrice.classList.add("carPrice");
+          carDivPrice.innerHTML = `${cars[i].price}`;
+          carDiv.appendChild(carDivPrice);
       }
-      // document.getElementById('prevBtn').disabled=(currentIndex===0);
-      // document.getElementById('nextBtn').disabled=((currentIndex+carPerPage)>=car.length);
-
-function showNext(){
-      if (currentIndex + carPerPage < car.length) { // Ensure we don't go out of bounds
-            currentIndex += carPerPage;
-            renderCars();
-        }
-}
-
-function showPrev(){
-      if (currentIndex > 0) { // Ensure we don't go out of bounds
-            currentIndex -= carPerPage;
-            renderCars();
-        }
   }
 
-  document.getElementById('prevBtn').addEventListener('click', showPrev);
-document.getElementById('nextBtn').addEventListener('click', showNext);
+  // Function to initialize a gallery with navigation
+  function initializeGallery(galleryId, btnPrevId, btnNextId, cars, carPerPage) {
+      let currentIndex = 0;
+      let carGallery = document.getElementById(galleryId);
+      let btnPrev = document.getElementById(btnPrevId);
+      let btnNext = document.getElementById(btnNextId);
 
-  renderCars();
+      function showNext() {
+          if (currentIndex + carPerPage < cars.length) {
+              currentIndex += carPerPage;
+              renderCars(carGallery, cars, currentIndex, carPerPage);
+          }
+      }
+
+      function showPrev() {
+          if (currentIndex > 0) {
+              currentIndex -= carPerPage;
+              renderCars(carGallery, cars, currentIndex, carPerPage);
+          }
+      }
+
+      btnPrev.addEventListener('click', showPrev);
+      btnNext.addEventListener('click', showNext);
+
+      // Initial render
+      renderCars(carGallery, cars, currentIndex, carPerPage);
+  }
+
+  // Initialize all car galleries
+  initializeGallery('carGallery1', 'prevBtn1', 'nextBtn1', cars, 4);
+  initializeGallery('carGallery2', 'prevBtn2', 'nextBtn2', cars, 4);
+  initializeGallery('carGallery3', 'prevBtn3', 'nextBtn3', cars, 4);
+  initializeGallery('carGallery4', 'prevBtn4', 'nextBtn4', cars, 4);
+
+

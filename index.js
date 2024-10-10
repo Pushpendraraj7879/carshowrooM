@@ -8,6 +8,7 @@ const jwt=require("jsonwebtoken");
 const cookieParser=require("cookie-parser");
 const {setUser,getUser}=require("./utils/auth");
 const checkAuthentication=require("./middlewares/authentication");
+const connectDB=require("./utils/connectDB");
 
 
 app.use(express.json());
@@ -18,14 +19,14 @@ app.set('views',path.join(__dirname,"views"));
 app.use(express.static(path.join(__dirname,"public")));
 
 
-async function connectDB(){
-    try{
-        await mongoose.connect(process.env.MONGO_URL);
-        console.log("database is successful connected")
-    }catch(error){
-        console.log("error in database",error);
-    }
-}
+// async function connectDB(){
+//     try{
+//         await mongoose.connect(process.env.MONGO_URL);
+//         console.log("database is successful connected")
+//     }catch(error){
+//         console.log("error in database",error);
+//     }
+// }
 
 connectDB();
 
@@ -46,6 +47,8 @@ app.get('/login',checkAuthentication,(req,res)=>{
 
 app.get('/home',(req,res)=>{
     const uid=req.cookies?.uid;
+    console.log(req.cookies.uid);
+    console.log(req.user)
     
     
     if(!uid)return res.redirect('/login');
@@ -57,6 +60,7 @@ app.get('/home',(req,res)=>{
 
     if(!user)return res.redirect('/login');
     res.render("home");
+    // console.log(req.user);
 })
 
 app.post("/signup-data",async(req,res)=>{
@@ -98,8 +102,8 @@ app.post("/login-data",async(req,res)=>{
 
 })
 
-app.post("/logout",(req,res)=>{
-    res.clearCookies("uid");
+app.get("/logout",(req,res)=>{
+    res.clearCookie("uid");
     res.redirect('/login');
 })
 

@@ -16,6 +16,7 @@ const checkAuthentication=(req,res,next)=>{
 
     
     req.user=user;
+    // console.log(typeof user);
     
 
     res.redirect('/home')
