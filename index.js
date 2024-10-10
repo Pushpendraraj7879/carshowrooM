@@ -4,6 +4,7 @@ require("dotenv").config();
 const path=require("path");
 const mongoose=require("mongoose");
 const User=require("./modules/User");
+const Contact=require("./modules/Contact");
 const jwt=require("jsonwebtoken");
 const cookieParser=require("cookie-parser");
 const {setUser,getUser}=require("./utils/auth");
@@ -47,8 +48,7 @@ app.get('/login',checkAuthentication,(req,res)=>{
 
 app.get('/home',(req,res)=>{
     const uid=req.cookies?.uid;
-    console.log(req.cookies.uid);
-    console.log(req.user)
+    
     
     
     if(!uid)return res.redirect('/login');
@@ -106,6 +106,32 @@ app.get("/logout",(req,res)=>{
     res.clearCookie("uid");
     res.redirect('/login');
 })
+
+app.get("/contact",(req,res)=>{
+   
+    res.render('contact');
+    
+})
+
+
+
+
+
+app.post("/contact-data",async(req,res)=>{
+   
+    const {name,mobile,email,message}=req.body;
+
+    try{
+             
+        await Contact.create({name,mobile,email,message});
+        console.log("contact is successfully submitted");
+        res.redirect('contact');
+    }catch(error){
+        console.log("contact is not submitted ",error);
+    }
+})
+
+
 
 
 

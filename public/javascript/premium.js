@@ -1,8 +1,15 @@
 
-const User=require("../../modules/User");
+// const User=require("../../modules/User");
 
 
 const cars = [
+      { image: "fsfs", heading: "lambo1", description: "high Speed car", price: "5cr" },
+      { image: "fsfs", heading: "lambo2", description: "high Speed car", price: "5cr" },
+      { image: "fsfs", heading: "lambo3", description: "high Speed car", price: "5cr" },
+      { image: "fsfs", heading: "lambo4", description: "high Speed car", price: "5cr" },
+      { image: "fsfs", heading: "lambo5", description: "high Speed car", price: "5cr" },
+      { image: "fsfs", heading: "lambo6", description: "high Speed car", price: "5cr" },
+      { image: "fsfs", heading: "lambo7", description: "high Speed car", price: "5cr" },
       { image: "fsfs", heading: "lambo1", description: "high Speed car", price: "5cr" },
       { image: "fsfs", heading: "lambo2", description: "high Speed car", price: "5cr" },
       { image: "fsfs", heading: "lambo3", description: "high Speed car", price: "5cr" },
@@ -52,14 +59,14 @@ const cars = [
 
       function showNext() {
           if (currentIndex + carPerPage < cars.length) {
-              currentIndex += carPerPage;
+              currentIndex += 1;
               renderCars(carGallery, cars, currentIndex, carPerPage);
           }
       }
 
       function showPrev() {
           if (currentIndex > 0) {
-              currentIndex -= carPerPage;
+              currentIndex -=1;
               renderCars(carGallery, cars, currentIndex, carPerPage);
           }
       }

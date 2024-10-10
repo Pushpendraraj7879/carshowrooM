@@ -191,7 +191,7 @@ li a{
 }
 .carGallery{
    
-    padding: 50px;
+    /* padding: 50px; */
     gap: 20px;
     display: flex;
     align-items: center;
